@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+  {{ team.team_name }}
+
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+
+  <h1> {{ team.team_name }} </h1>
+
+  {% if list_user != [] %}
+
+    {% for el in list_user %}
+
+      <div class="alert alert-info">
+
+        <h3> {{ el.user_name }}: {{ el.email }}, {{ el.telephone }} </h3>
+
+        <a href="/teams/{{ team.id }}/{{ el.id }}/delete" class="btn btn-warning"> Удалить </a>
+
+      </div>
+
+    {% endfor %}
+
+  {% else %}
+
+    <p> Участники еще не добавлены </p>
+
+  {% endif %}
+
+</div>
+{% endblock %}

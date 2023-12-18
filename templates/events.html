@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+  Мероприятия
+
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+  
+  <h1> Мероприятия </h1>
+  <a href="/events/add" class="btn btn-warning"> Добавить </a>
+
+  {% if events|length > 0 %}
+
+    {% for el in events %}
+  
+      <div class="alert alert-info">
+  
+        <h2> {{ el.event_name }} </h2>
+        <p> {{ el.place }} </p>
+        <p><b> {{ el.date.date() }} </b></p>
+        <a href="/events/{{ el.id }}" class="btn btn-warning"> Открыть </a>
+        <a href="/events/{{ el.id }}/delete" class="btn btn-warning"> Удалить </a>
+        <a href="/events/{{ el.id }}/update" class="btn btn-warning"> Редактировать </a>
+        
+      </div>
+    
+    {% endfor %}
+
+  {% else %}
+  
+    <p> Мероприятий пока нет </p>
+  
+  {% endif %}
+  
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+  Добавление мероприятия
+
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+  <h1> Добавление мероприятия </h1>
+  <form action="#" method="post">
+
+    <input type="text" name="event_name" id="event_name" class="form-control" placeholder="Введите название мероприятия"><br>
+    <input type="text" name="place" id="place" class="form-control" placeholder="Введите место проведения мероприятия"><br>
+
+        {{ form.date(class='datepicker') }}
+        {{ form.hidden_tag() }}
+
+    <input type="submit" class="btn btn-success" value="Добавить">
+
+  </form>
+</div>
+{% endblock %}
